@@ -64,3 +64,5 @@ com.denicks21.recorder          # Root Package
 ## 📎 Screenshots
 <p float="left">
 <img height="500em" src="screenshots/Screenshot01.png" title="Recorder's screen preview">
+<img height="500em" src="screenshots/Screenshot02.png" title="Recorder's screen preview">
+<img height="500em" src="screenshots/Screenshot03.png" title="Recorder's screen preview">
