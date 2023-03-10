@@ -42,7 +42,9 @@ com.denicks21.recorder          # Root Package
 |   ├── RecorderPlayer          # Recorder player.
 |
 ├── screen                      # App screens folder
+|   │   ├── AudioPlayerPage     # Listen last record.
 |   │   ├── HomePage            # Main page of the app.
+|   │   ├── RecorderPage        # Start a new record.
 |   │   ├── InfoPage            # Page containing information about the app and developer profile.
 |   │   ├── IntroPage           # Splashscreen of the app.
 │
