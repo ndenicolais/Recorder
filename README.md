@@ -2,7 +2,20 @@
 > <b>Author: Nicola De Nicolais</b>
 
 ## 📍 Description
-Android application built with Kotlin and Jetpack Compose that shows how to record the input voice and save it in .mp3 files.
+Android application built with Kotlin and Jetpack Compose that shows how to record the input voice and save it in .mp3 files.<br/>
+The app use MediaRecorder that in Android is used for recording audio or video, there is a built-in class called MediaRecorder.
+The Android multimedia framework provides built-in support for capturing and encoding common audio and video formats.<br/>
+These are some parameters that can be changed:
+
+```
+setAudioSource()      # This method will specify the source of the audio to be recorded.
+setAudioEncoder()     # This method is used to specify the audio encoder.
+setOutputFormat()     # This method is used to specify the output format of our audio.
+setOutputFile()       # This method is used to specify the path of recorded audio files that are to be stored.
+stop()                # This method is used to stop the recording process. 
+start()               # This method is used to start the recording process. 
+release()             # This method is used to release the resource that is associated with the Media recorder class.
+```
 
 ## ⚡ Structure
 ### Jetpack Compose
