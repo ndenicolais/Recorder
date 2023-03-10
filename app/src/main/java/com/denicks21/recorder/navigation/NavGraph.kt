@@ -4,9 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.denicks21.recorder.screens.HomePage
-import com.denicks21.recorder.screens.InfoPage
-import com.denicks21.recorder.screens.IntroPage
+import com.denicks21.recorder.screens.*
 
 @Composable
 fun NavGraph(
@@ -23,6 +21,12 @@ fun NavGraph(
         }
         composable(route = NavScreens.HomePage.route) {
             HomePage(navController, openDrawer)
+        }
+        composable(route = NavScreens.RecorderPlayerPage.route) {
+            RecorderPlayerPage(navController, openDrawer)
+        }
+        composable(route = NavScreens.AudioPlayerPage.route) {
+            AudioPlayerPage(navController, openDrawer)
         }
         composable(route = NavScreens.InfoPage.route) {
             InfoPage(navController, openDrawer)

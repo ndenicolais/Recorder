@@ -27,6 +27,8 @@ import com.denicks21.recorder.ui.theme.YellowDark
 
 private val screens = listOf(
     NavScreens.HomePage,
+    NavScreens.RecorderPlayerPage,
+    NavScreens.AudioPlayerPage,
     NavScreens.InfoPage
 )
 
