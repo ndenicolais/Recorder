@@ -14,8 +14,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.denicks21.recorder.navigation.NavScreens
 import com.denicks21.recorder.navigation.NavScreens.HomePage.title
-import com.denicks21.recorder.ui.composables.CustomBackPress
-import com.denicks21.recorder.ui.composables.CustomTopBar
+import com.denicks21.recorder.ui.composables.BackPress
+import com.denicks21.recorder.ui.composables.TopBar
 import com.denicks21.recorder.ui.theme.GreyDark
 import com.denicks21.recorder.ui.theme.YellowDark
 
@@ -25,32 +25,26 @@ fun HomePage(
     navController: NavHostController,
     openDrawer: () -> Unit,
 ) {
-    CustomBackPress(
-        onBackPressed = {}
-    )
-
     val scaffoldState = rememberScaffoldState()
+
+    BackPress(onBackPressed = {})
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = {
-            CustomTopBar(
+            TopBar(
                 title,
                 openDrawer
             )
         },
     ) {
-        Box(
-            modifier = Modifier.fillMaxSize()
-        ) {
+        Box(modifier = Modifier.fillMaxSize()) {
             Column(
                 modifier = Modifier.fillMaxSize(),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Button(
-                    onClick = {
-                        navController.navigate(NavScreens.RecorderPlayerPage.route)
-                    },
+                    onClick = { navController.navigate(NavScreens.RecorderPlayerPage.route) },
                     modifier = Modifier
                         .width(180.dp)
                         .height(80.dp)
@@ -60,25 +54,19 @@ fun HomePage(
                         3.dp,
                         GreyDark
                     ),
-                    colors = ButtonDefaults.buttonColors(
-                        backgroundColor = YellowDark
-                    ),
+                    colors = ButtonDefaults.buttonColors(backgroundColor = YellowDark),
                 ) {
                     Text(
-                        "Recorder",
+                        text = "Recorder",
                         modifier = Modifier.padding(5.dp),
                         color = GreyDark,
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold
                     )
                 }
-                Spacer(
-                    modifier = Modifier.height(30.dp)
-                )
+                Spacer(modifier = Modifier.height(30.dp))
                 Button(
-                    onClick = {
-                        navController.navigate(NavScreens.AudioPlayerPage.route)
-                    },
+                    onClick = { navController.navigate(NavScreens.AudioPlayerPage.route) },
                     modifier = Modifier
                         .width(180.dp)
                         .height(80.dp)
@@ -88,9 +76,7 @@ fun HomePage(
                         3.dp,
                         YellowDark
                     ),
-                    colors = ButtonDefaults.buttonColors(
-                        backgroundColor = GreyDark
-                    ),
+                    colors = ButtonDefaults.buttonColors(backgroundColor = GreyDark),
                 ) {
                     Text(
                         text = "Audio player",

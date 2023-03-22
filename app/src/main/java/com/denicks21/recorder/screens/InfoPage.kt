@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -19,7 +20,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.denicks21.recorder.R
 import com.denicks21.recorder.navigation.NavScreens.InfoPage.title
-import com.denicks21.recorder.ui.composables.CustomTopBar
+import com.denicks21.recorder.ui.composables.TopBar
 import com.denicks21.recorder.ui.theme.GreyDark
 import com.denicks21.recorder.ui.theme.GreyLight
 import com.denicks21.recorder.ui.theme.YellowDark
@@ -34,7 +35,7 @@ fun InfoPage(
 
     Scaffold(
         topBar = {
-            CustomTopBar(
+            TopBar(
                 title,
                 openDrawer
             )
@@ -53,6 +54,7 @@ fun InfoPage(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(15.dp),
+                        shape = RoundedCornerShape(10.dp),
                         backgroundColor = GreyLight,
                         elevation = 10.dp
                     ) {
@@ -62,24 +64,18 @@ fun InfoPage(
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
                             Text(
-                                text = stringResource(
-                                    id = R.string.app_name
-                                ),
+                                text = stringResource(id = R.string.app_name),
                                 color = GreyDark,
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 26.sp
                             )
-                            Spacer(
-                                modifier = Modifier.height(10.dp)
-                            )
+                            Spacer(modifier = Modifier.height(10.dp))
                             Image(
                                 painter = painterResource(id = R.drawable.logo),
                                 contentDescription = "Logo",
                                 modifier = Modifier.clip(CircleShape)
                             )
-                            Spacer(
-                                modifier = Modifier.height(20.dp)
-                            )
+                            Spacer(modifier = Modifier.height(20.dp))
                             Divider(
                                 thickness = 1.5.dp,
                                 color = GreyDark
@@ -92,18 +88,15 @@ fun InfoPage(
                                 thickness = 1.5.dp,
                                 color = GreyDark
                             )
-                            Spacer(
-                                modifier = Modifier.height(10.dp)
-                            )
+                            Spacer(modifier = Modifier.height(10.dp))
                             Text(
-                                text = ("Android application built with Kotlin and Jetpack Compose that shows how to " +
+                                text = (
+                                        "Android application built with Kotlin and Jetpack Compose that shows how to " +
                                         "record the input voice and save it in .mp3 files."
                                         ),
                                 color = GreyDark
                             )
-                            Spacer(
-                                modifier = Modifier.height(10.dp)
-                            )
+                            Spacer(modifier = Modifier.height(10.dp))
                             Divider(
                                 thickness = 1.5.dp,
                                 color = GreyDark
@@ -116,9 +109,7 @@ fun InfoPage(
                                 thickness = 1.5.dp,
                                 color = GreyDark
                             )
-                            Spacer(
-                                modifier = Modifier.height(15.dp)
-                            )
+                            Spacer(modifier = Modifier.height(15.dp))
                             Row(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.Center
@@ -126,16 +117,12 @@ fun InfoPage(
                                 IconButton(
                                     modifier = Modifier.fillMaxSize(0.3f),
                                     onClick = {
-                                        uriHandler.openUri(
-                                            "https://github.com/ndenicolais"
-                                        )
+                                        uriHandler.openUri("https://github.com/ndenicolais")
                                     }
                                 ) {
                                     Image(
-                                        painter = painterResource(
-                                            id = R.drawable.github_logo
-                                        ),
-                                        contentDescription = "Open Github"
+                                        painter = painterResource(id = R.drawable.github_logo),
+                                        contentDescription = "Open GitHub"
                                     )
                                 }
                             }

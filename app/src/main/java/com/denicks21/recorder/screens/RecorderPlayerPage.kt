@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.denicks21.recorder.MainActivity
 import com.denicks21.recorder.navigation.NavScreens.RecorderPlayerPage.title
-import com.denicks21.recorder.ui.composables.CustomTopBar
+import com.denicks21.recorder.ui.composables.TopBar
 import com.denicks21.recorder.ui.theme.GreyDark
 import com.denicks21.recorder.ui.theme.YellowDark
 import java.io.File
@@ -40,7 +40,7 @@ fun RecorderPlayerPage(
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = {
-            CustomTopBar(
+            TopBar(
                 title,
                 openDrawer
             )
@@ -69,9 +69,7 @@ fun RecorderPlayerPage(
                         fontSize = 22.sp,
                         fontWeight = FontWeight.Bold
                     )
-                    Spacer(
-                        modifier = Modifier.height(30.dp)
-                    )
+                    Spacer(modifier = Modifier.height(30.dp))
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceEvenly

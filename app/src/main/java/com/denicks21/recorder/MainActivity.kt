@@ -12,7 +12,7 @@ import androidx.core.app.ActivityCompat
 import com.denicks21.recorder.navigation.NavGraph
 import com.denicks21.recorder.play.AudioPlayer
 import com.denicks21.recorder.record.RecorderPlayer
-import com.denicks21.recorder.ui.composables.CustomDrawer
+import com.denicks21.recorder.ui.composables.NavigationDrawer
 import com.denicks21.recorder.ui.theme.GreyDark
 import com.denicks21.recorder.ui.theme.RecorderTheme
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
@@ -56,7 +56,7 @@ class MainActivity : ComponentActivity() {
                         drawerState = drawerState,
                         gesturesEnabled = drawerState.isOpen,
                         drawerContent = {
-                            CustomDrawer(
+                            NavigationDrawer(
                                 onDestinationClicked = { route ->
                                     scope.launch {
                                         drawerState.close()
