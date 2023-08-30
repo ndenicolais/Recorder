@@ -30,8 +30,6 @@ import com.denicks21.recorder.MainActivity
 import com.denicks21.recorder.R
 import com.denicks21.recorder.ui.theme.DarkGrey
 import com.denicks21.recorder.ui.theme.DarkText
-import com.denicks21.recorder.ui.theme.DarkYellow
-import com.denicks21.recorder.ui.theme.LightGrey
 import com.denicks21.recorder.ui.theme.LightText
 import com.denicks21.recorder.ui.theme.LightYellow
 import java.io.File

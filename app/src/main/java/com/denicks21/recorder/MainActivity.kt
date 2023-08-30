@@ -106,7 +106,6 @@ class MainActivity : ComponentActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        // Salva i percorsi dei file audio prima di chiudere l'app
         saveFilePathsToFile()
     }
 }

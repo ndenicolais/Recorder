@@ -224,7 +224,7 @@ fun AudioPlayerPage(navController: NavHostController) {
                                         .height(250.dp)
                                         .width(300.dp),
                                     shape = RoundedCornerShape(size = 8.dp),
-                                    color = if (isSystemInDarkTheme()) LightYellow else DarkGrey
+                                    color = if (isSystemInDarkTheme()) DarkGrey else LightYellow
                                 ) {
                                     Column(
                                         modifier = Modifier
@@ -234,13 +234,13 @@ fun AudioPlayerPage(navController: NavHostController) {
                                         Text(
                                             text = "RENAME RECORD",
                                             modifier = Modifier.fillMaxWidth(),
-                                            color = if (isSystemInDarkTheme()) DarkGrey else LightYellow,
+                                            color = if (isSystemInDarkTheme()) LightYellow else DarkGrey,
                                             fontSize = 22.sp,
                                             fontWeight = FontWeight.Bold,
                                             textAlign = TextAlign.Center
                                         )
                                         Divider(
-                                            color = if (isSystemInDarkTheme()) DarkGrey else LightYellow,
+                                            color = if (isSystemInDarkTheme()) LightYellow else DarkGrey,
                                             thickness = 1.dp
                                         )
                                         Column(
