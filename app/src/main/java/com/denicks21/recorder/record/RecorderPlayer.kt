@@ -12,8 +12,8 @@ class RecorderPlayer (
 ): RecorderInterface {
 
     private var recorder: MediaRecorder? = null
-    private var isPaused: Boolean = false
-    private var pausedTime: Long = 0
+//    private var isPaused: Boolean = false
+//    private var pausedTime: Long = 0
 
     private fun createRecorder(): MediaRecorder {
         return if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
@@ -22,10 +22,10 @@ class RecorderPlayer (
     }
 
     override fun start(outputFile: File) {
-        if (isPaused) {
-            resume(outputFile)
-            return
-        }
+//        if (isPaused) {
+//            resume(outputFile)
+//            return
+//        }
 
         createRecorder().apply {
             setAudioSource(MediaRecorder.AudioSource.MIC)
@@ -40,34 +40,34 @@ class RecorderPlayer (
         }
     }
 
-    fun pause() {
-        if (recorder != null) {
-            isPaused = true
-            pausedTime = SystemClock.elapsedRealtime()
-            recorder?.stop()
-            recorder?.release()
-            recorder = null
-        }
-    }
-
-    fun resume(outputFile: File) {
-        if (isPaused) {
-            val elapsedTime = SystemClock.elapsedRealtime() - pausedTime
-            createRecorder().apply {
-                setAudioSource(MediaRecorder.AudioSource.MIC)
-                setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
-                setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
-                setOutputFile(FileOutputStream(outputFile).fd)
-
-                prepare()
-                start()
-
-                recorder = this
-            }
-            isPaused = false
-            pausedTime = 0
-        }
-    }
+//    fun pause() {
+//        if (recorder != null) {
+//            isPaused = true
+//            pausedTime = SystemClock.elapsedRealtime()
+//            recorder?.stop()
+//            recorder?.release()
+//            recorder = null
+//        }
+//    }
+//
+//    fun resume(outputFile: File) {
+//        if (isPaused) {
+//            val elapsedTime = SystemClock.elapsedRealtime() - pausedTime
+//            createRecorder().apply {
+//                setAudioSource(MediaRecorder.AudioSource.MIC)
+//                setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
+//                setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
+//                setOutputFile(FileOutputStream(outputFile).fd)
+//
+//                prepare()
+//                start()
+//
+//                recorder = this
+//            }
+//            isPaused = false
+//            pausedTime = 0
+//        }
+//    }
 
     override fun stop() {
         recorder?.stop()

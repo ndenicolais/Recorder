@@ -49,7 +49,7 @@ fun RecorderPlayerPage(navController: NavHostController) {
     var recordingTime by remember { mutableStateOf(0L) }
     var lockedRecordingTime by remember { mutableStateOf(0L) }
     var isRecording by remember { mutableStateOf(false) }
-    var isPaused by remember { mutableStateOf(false) }
+//    var isPaused by remember { mutableStateOf(false) }
 
     Surface(modifier = Modifier.fillMaxSize()) {
         Column(verticalArrangement = Arrangement.Top) {
@@ -143,27 +143,27 @@ fun RecorderPlayerPage(navController: NavHostController) {
                                         }
                                     }
                                     isRecording = true
-                                    isPaused = false
-                                } else if (isPaused) {
-                                    speechContext.recorderPlayer.resume(newAudioFile)
-                                    timer = Timer()
-                                    timer?.scheduleAtFixedRate(0L, 1000L) {
-                                        recordingTime += 1000
-                                    }
-                                    isPaused = false
-                                } else {
-                                    speechContext.recorderPlayer.pause()
-                                    timer?.cancel()
-                                    isPaused = true
+//                                    isPaused = false
+//                                } else if (isPaused) {
+//                                    speechContext.recorderPlayer.resume(newAudioFile)
+//                                    timer = Timer()
+//                                    timer?.scheduleAtFixedRate(0L, 1000L) {
+//                                        recordingTime += 1000
+//                                    }
+//                                    isPaused = false
+//                                } else {
+//                                    speechContext.recorderPlayer.pause()
+//                                    timer?.cancel()
+//                                    isPaused = true
                                 }
                             },
                             backgroundColor = if (isSystemInDarkTheme()) DarkGrey else LightYellow
                         ) {
                             Icon(
                                 imageVector =
-                                if (isRecording && !isPaused)
-                                    Icons.Filled.Pause
-                                else
+//                                if (isRecording && !isPaused)
+//                                    Icons.Filled.Pause
+//                                else
                                     Icons.Filled.PlayArrow,
                                 contentDescription = "Start recording",
                                 tint = if (isSystemInDarkTheme()) LightYellow else DarkGrey
