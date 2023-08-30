@@ -14,14 +14,10 @@ sealed class NavScreens(val title: String, val route: String, var icon: ImageVec
     )
 
     object RecorderPlayerPage: NavScreens(
-        "Recorder", "RecorderPlayerPage", Icons.Filled.KeyboardVoice
+        "Recorder player", "RecorderPlayerPage", Icons.Filled.KeyboardVoice
     )
 
     object AudioPlayerPage: NavScreens(
         "Audio player", "AudioPlayerPage", Icons.Filled.VolumeUp
-    )
-
-    object InfoPage: NavScreens(
-        "Info", "InfoPage", Icons.Filled.Info
     )
 }
