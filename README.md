@@ -49,29 +49,29 @@ Navigation
 ```
 com.denicks21.recorder          # Root Package
 │ 
-├── navigation                  # Navigation folder
+├── navigation                  # NAVIGATION FOLDER
 │   ├── NavGraph                # Contains all of app destinations and actions.
 │   └── NavScreens              # Contains a sealed class with object corresponds to a screen and its routes.
 |
-├── play                        # AudioPlayer folder
+├── play                        # PLAYER FOLDER
 │   ├── AudioInterface          # Interface of audio player.
 |   ├── AudioPlayer             # Audio player.
 |
-├── record                      # RecorderPlayer folder
+├── record                      # RECORDER FOLDER
 │   ├── RecorderInterface       # Interface of recorder player.
 |   ├── RecorderPlayer          # Recorder player.
 |
-├── screen                      # App screens folder
+├── screen                      # SCREEN FOLDER
 |   │   ├── AudioPlayerPage     # Listen last record.
 |   │   ├── HomePage            # Main page of the app.
 |   │   ├── IntroPage           # Splashscreen of the app.
 |   │   ├── RecorderPlayerPage  # Start a new record.
 │
-├── ui                          # UI resources folder
+├── ui                          # UI FOLDER
 │   ├── composables             # Composable components folder
 |   │   ├── BackPress           # Component that control and prevent back button action.
 |
-├── theme                       # Theme components folder
+├── theme                       # THEME FOLDER
 |   │   ├── Color               # Color palette used by the app.
 |   │   ├── Shape               # Components shapes of Compose used by the app.
 |   │   ├── Theme               # Theme used by the app.
