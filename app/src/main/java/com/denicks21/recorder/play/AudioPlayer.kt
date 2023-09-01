@@ -5,9 +5,9 @@ import android.media.MediaPlayer
 import androidx.core.net.toUri
 import java.io.File
 
-class AudioPlayer (
-    private val context: Context
-): AudioInterface {
+class AudioPlayer(
+    private val context: Context,
+) : AudioInterface {
 
     private var player: MediaPlayer? = null
 

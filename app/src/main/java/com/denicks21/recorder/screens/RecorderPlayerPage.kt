@@ -33,8 +33,6 @@ import com.denicks21.recorder.ui.theme.DarkText
 import com.denicks21.recorder.ui.theme.LightText
 import com.denicks21.recorder.ui.theme.LightYellow
 import java.io.File
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 import java.util.Timer
 import kotlin.concurrent.scheduleAtFixedRate
 
@@ -43,13 +41,11 @@ import kotlin.concurrent.scheduleAtFixedRate
 fun RecorderPlayerPage(navController: NavHostController) {
     val context = LocalContext.current
     val speechContext = context as MainActivity
-    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss")
-    val current = LocalDateTime.now().format(formatter)
     var timer: Timer? by remember { mutableStateOf(null) }
     var recordingTime by remember { mutableStateOf(0L) }
     var lockedRecordingTime by remember { mutableStateOf(0L) }
     var isRecording by remember { mutableStateOf(false) }
-//    var isPaused by remember { mutableStateOf(false) }
+    var isPaused by remember { mutableStateOf(false) }
 
     Surface(modifier = Modifier.fillMaxSize()) {
         Column(verticalArrangement = Arrangement.Top) {
@@ -127,7 +123,8 @@ fun RecorderPlayerPage(navController: NavHostController) {
                     ) {
                         FloatingActionButton(
                             onClick = {
-                                val fileName = "Record_${current}.mp3"
+                                val timestamp = System.currentTimeMillis()
+                                val fileName = "Record_${timestamp}.mp3"
                                 val newAudioFile = File(
                                     speechContext.getExternalFilesDir("Records"),
                                     fileName
@@ -143,27 +140,27 @@ fun RecorderPlayerPage(navController: NavHostController) {
                                         }
                                     }
                                     isRecording = true
-//                                    isPaused = false
-//                                } else if (isPaused) {
-//                                    speechContext.recorderPlayer.resume(newAudioFile)
-//                                    timer = Timer()
-//                                    timer?.scheduleAtFixedRate(0L, 1000L) {
-//                                        recordingTime += 1000
-//                                    }
-//                                    isPaused = false
-//                                } else {
-//                                    speechContext.recorderPlayer.pause()
-//                                    timer?.cancel()
-//                                    isPaused = true
+                                    isPaused = false
+                                } else if (isPaused) {
+                                    speechContext.recorderPlayer.resume()
+                                    timer = Timer()
+                                    timer?.scheduleAtFixedRate(0L, 1000L) {
+                                        recordingTime += 1000
+                                    }
+                                    isPaused = false
+                                } else {
+                                    speechContext.recorderPlayer.pause()
+                                    timer?.cancel()
+                                    isPaused = true
                                 }
                             },
                             backgroundColor = if (isSystemInDarkTheme()) DarkGrey else LightYellow
                         ) {
                             Icon(
                                 imageVector =
-//                                if (isRecording && !isPaused)
-//                                    Icons.Filled.Pause
-//                                else
+                                if (isRecording && !isPaused)
+                                    Icons.Filled.Pause
+                                else
                                     Icons.Filled.PlayArrow,
                                 contentDescription = "Start recording",
                                 tint = if (isSystemInDarkTheme()) LightYellow else DarkGrey
